@@ -14,6 +14,7 @@ export const Container = styled.div`
     justify-content: space-between;
   }
 `
+
 export const Logo = styled.div`
   display: flex;
   justify-content: flex-start;
