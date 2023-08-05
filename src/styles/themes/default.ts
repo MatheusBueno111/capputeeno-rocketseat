@@ -5,6 +5,7 @@ export const defaultTheme = {
     text: '#737380',
     divider: '#DCE2E5',
     background: '#F0F0F5',
+    backgroundLight: '#f3f5f6',
     red: '#DE3838',
     blue: '#115D8C',
     green: '#51B853',
@@ -13,6 +14,6 @@ export const defaultTheme = {
     price: '#09090A',
   },
   fonts: {
-    text: 'Sairo',
+    text: 'Saira',
   },
 } as const

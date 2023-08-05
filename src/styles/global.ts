@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 1.6rem;
+    font-family: ${({ theme }) => theme.fonts.text};
   }
 
   a, a:hover, a:focus, a:active {
