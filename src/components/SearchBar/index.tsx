@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './styles'
-import { SearchIcon } from '../Icons/searchIcon'
+import { SearchIcon } from '../Icons/SearchIcon'
 
 const SearchBar: React.FC = () => {
   return (

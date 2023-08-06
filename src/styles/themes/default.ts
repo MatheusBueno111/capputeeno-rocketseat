@@ -6,6 +6,7 @@ export const defaultTheme = {
     divider: '#DCE2E5',
     background: '#F0F0F5',
     backgroundLight: '#f3f5f6',
+    gray: '#E9E9F0',
     red: '#DE3838',
     blue: '#115D8C',
     green: '#51B853',

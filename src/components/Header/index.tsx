@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './styles'
 import SearchBar from '../SearchBar'
-import { CartIcon } from '../Icons/cartIcon'
+import { CartIcon } from '../Icons/CartIcon'
 
 const Header: React.FC = () => {
   return (

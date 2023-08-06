@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 2rem 1rem;
+  padding: 1rem;
   margin: 0 auto;
   justify-content: space-around;
   gap: 1rem;
@@ -57,7 +57,7 @@ export const Wrapper = styled.div`
   }
 
   @media (min-width: 768px) {
-    max-width: 50rem;
+    max-width: 40rem;
     gap: 2.4rem;
 
     .cart {
