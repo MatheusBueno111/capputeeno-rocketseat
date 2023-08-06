@@ -12,6 +12,7 @@ export const defaultTheme = {
     green: '#51B853',
     orange: '#FFA585',
     white: '#FFFFFF',
+    whiteLight: '#f5f5fa',
     price: '#09090A',
   },
   fonts: {

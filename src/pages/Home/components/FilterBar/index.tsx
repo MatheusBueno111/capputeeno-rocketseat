@@ -12,7 +12,6 @@ const FilterBar: React.FC = () => {
   ]
   const handleSelectChange = (selectedOption: Option) => {
     console.log(`Selected option: ${selectedOption.option}`)
-    // Adicione aqui a lógica para tratar a seleção da opção.
   }
 
   return (
