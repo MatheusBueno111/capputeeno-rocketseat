@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import * as S from './styles'
 import { ArrowDown } from '../../../../components/Icons/ArrowDown'
 import { Option } from '../../../../types'
@@ -18,9 +18,9 @@ const Select: React.FC<SelectProps> = ({ options, onChange }) => {
     onChange(option)
   }
 
-  useEffect(() => {
-    console.log('selectedOption', selectedOption)
-  }, [selectedOption])
+  // useEffect(() => {
+  //   console.log('selectedOption', selectedOption)
+  // }, [selectedOption])
 
   return (
     <S.Container>

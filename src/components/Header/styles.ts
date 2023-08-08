@@ -53,6 +53,7 @@ export const Wrapper = styled.div`
       position: absolute;
       bottom: 2px;
       left: 15px;
+      font-weight: 500;
     }
   }
 
