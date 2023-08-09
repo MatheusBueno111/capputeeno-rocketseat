@@ -1,9 +1,23 @@
 import React from 'react'
 
-// import { Container } from './styles';
+import * as S from './styles'
+import { Product } from '../../types'
 
-const ProductCard: React.FC = () => {
-  return <div />
+interface ProductCardProps {
+  product: Product
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  return (
+    <S.Container>
+      <img src={product.image_url} alt="cappuccino" />
+      <S.Wrapper>
+        <p className="product-description">{product.name}</p>
+        <S.Divider />
+        <span className="product-price">{product.price_in_cents}</span>
+      </S.Wrapper>
+    </S.Container>
+  )
 }
 
 export default ProductCard

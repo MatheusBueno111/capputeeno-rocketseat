@@ -1,11 +1,11 @@
 import axios, { AxiosPromise } from 'axios'
 import { ProductsFetchResponse } from '../types'
 
-const ARI_URL = 'http://localhost:3333/' as string
+const API_URL = 'http://localhost:3333/' as string
 
 export const fetchProducts = async (): AxiosPromise<ProductsFetchResponse> => {
   console.log('Fetching products')
-  const response = await axios.post(ARI_URL, {
+  const response = await axios.post(API_URL, {
     query: `
        {
         allProducts {
@@ -13,11 +13,8 @@ export const fetchProducts = async (): AxiosPromise<ProductsFetchResponse> => {
           name
           image_url
           price_in_cents
-          sales
         }}
       `,
   })
-  const products = response.data.data.allProducts
-  console.log('Product', products)
-  return products
+  return response
 }

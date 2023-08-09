@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 1rem;
   background-color: ${({ theme }) => theme.colors.background};
-  height: 100vh;
+  height: fit-content;
   gap: 1rem;
 
   @media (min-width: 768px) {
@@ -16,3 +16,5 @@ export const Container = styled.div`
     gap: 2.8rem;
   }
 `
+
+export const ProductList = styled.div``

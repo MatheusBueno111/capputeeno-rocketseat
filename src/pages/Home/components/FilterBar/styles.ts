@@ -15,6 +15,7 @@ export const WrapperFilters = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: auto;
   @media (min-width: 768px) {
     gap: 4rem;
     justify-content: unset;
