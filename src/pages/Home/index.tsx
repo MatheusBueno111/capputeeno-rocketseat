@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import * as S from './styles'
-import FilterBar from './components/FilterBar'
+import FilterByType from './components/FilterByType'
 import PaginationBar from '../../components/Pagination'
 import { useProducts } from '../../hook/useProducts'
 
@@ -9,15 +9,10 @@ import ProductList from '../../components/ProductList'
 const Home: React.FC = () => {
   const { products, isLoading } = useProducts()
 
-  useEffect(() => {
-    console.log('Componente Montado')
-  }, [])
-
   return (
     <S.Container>
-      <FilterBar />
+      <FilterByType />
       <PaginationBar />
-
       <ProductList products={products} isLoading={isLoading} />
     </S.Container>
   )

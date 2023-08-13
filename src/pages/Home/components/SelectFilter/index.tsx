@@ -8,7 +8,7 @@ interface SelectProps {
   onChange: (option: Option) => void
 }
 
-const Select: React.FC<SelectProps> = ({ options, onChange }) => {
+const SelectFilter: React.FC<SelectProps> = ({ options, onChange }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
 
@@ -44,4 +44,4 @@ const Select: React.FC<SelectProps> = ({ options, onChange }) => {
   )
 }
 
-export default Select
+export default SelectFilter

@@ -1,12 +1,17 @@
 import { useQuery } from 'react-query'
+import { useFilter } from '../contexts/FilterContext'
 import { fetchProducts } from '../fetchers/products'
 
 export function useProducts() {
-  const { data: response, isLoading } = useQuery({
-    queryFn: fetchProducts,
-    queryKey: ['products'],
-    refetchOnWindowFocus: false,
+  const { filter } = useFilter()
+  const isSelected = (value: string) => {
+    return filter === value
+  }
+
+  const { data, isLoading } = useQuery({
+    queryFn: () => fetchProducts(filter),
+    queryKey: ['products', filter],
   })
-  const products = response?.data?.data?.allProducts
-  return { products, isLoading }
+  const products = data?.allProducts
+  return { products, isLoading, isSelected }
 }

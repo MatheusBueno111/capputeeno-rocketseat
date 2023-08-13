@@ -1,20 +1,36 @@
-import axios, { AxiosPromise } from 'axios'
-import { ProductsFetchResponse } from '../types'
+import { gql } from 'graphql-request'
+import client from '../graphql/client'
+import { GET_ALL_PRODUCTS } from '../graphql/queries/getProducts'
+import { FetchProductsResponse, Filter } from '../types'
+import { GET_PRODUCTS_BY_CATEGORY } from '../graphql/queries/getProductsByCategory'
 
-const API_URL = 'http://localhost:3333/' as string
+export const fetchProducts = async (filter: Filter | '') => {
+  const query =
+    filter === ''
+      ? gql`
+          ${GET_ALL_PRODUCTS}
+        `
+      : gql`
+          ${GET_PRODUCTS_BY_CATEGORY}
+        `
 
-export const fetchProducts = async (): AxiosPromise<ProductsFetchResponse> => {
-  console.log('Fetching products')
-  const response = await axios.post(API_URL, {
-    query: `
-       {
-        allProducts {
-          id
-          name
-          image_url
-          price_in_cents
-        }}
-      `,
-  })
+  const variables = filter === '' ? undefined : { category: filter }
+
+  const response = await client.request<FetchProductsResponse>(query, variables)
+
   return response
 }
+
+// const fetchProducts = await client.request<FetchProductsResponse>(
+//   gql`
+//     query {
+//       allProducts(filter: { category: "${filter}" }) {
+//         id
+//         name
+//         image_url
+//         price_in_cents
+//         category
+//       }
+//     }
+//   `,
+// )

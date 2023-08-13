@@ -7,10 +7,11 @@ export interface Product {
   name: string
   image_url: string
   price_in_cents: number
+  category: string
 }
 
-export interface ProductsFetchResponse {
-  data: {
-    allProducts: Product[]
-  }
+export interface FetchProductsResponse {
+  allProducts: Product[]
 }
+
+export type Filter = 't-shirts' | 'mugs'
