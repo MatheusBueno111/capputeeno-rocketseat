@@ -3,15 +3,13 @@ import { useFilter } from '../contexts/FilterContext'
 import { fetchProducts } from '../fetchers/products'
 
 export function useProducts() {
-  const { filter } = useFilter()
-  const isSelected = (value: string) => {
-    return filter === value
-  }
+  const { filter, sortBy } = useFilter()
 
   const { data, isLoading } = useQuery({
-    queryFn: () => fetchProducts(filter),
-    queryKey: ['products', filter],
+    queryFn: () => fetchProducts(filter, sortBy),
+    queryKey: ['products', filter, sortBy],
+    staleTime: 60 * 1000, // 1 minute
   })
   const products = data?.allProducts
-  return { products, isLoading, isSelected }
+  return { products, isLoading }
 }

@@ -1,5 +1,7 @@
 export interface Option {
   option: string
+  sortField: string
+  sortOrder: string
 }
 
 export interface Product {

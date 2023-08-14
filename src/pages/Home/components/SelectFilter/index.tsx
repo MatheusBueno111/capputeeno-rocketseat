@@ -2,30 +2,36 @@ import React, { useState } from 'react'
 import * as S from './styles'
 import { ArrowDown } from '../../../../components/Icons/ArrowDown'
 import { Option } from '../../../../types'
+import { useFilter } from '../../../../contexts/FilterContext'
 
-interface SelectProps {
-  options: Option[]
-  onChange: (option: Option) => void
-}
-
-const SelectFilter: React.FC<SelectProps> = ({ options, onChange }) => {
+const SortBySelect: React.FC = () => {
+  const { sortBy, setSortBy } = useFilter()
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedOption, setSelectedOption] = useState<Option | null>(null)
 
   const handleSelect = (option: Option) => {
-    setSelectedOption(option)
+    setSortBy(option)
     setIsOpen(false)
-    onChange(option)
   }
 
-  // useEffect(() => {
-  //   console.log('selectedOption', selectedOption)
-  // }, [selectedOption])
+  const options: Option[] = [
+    { option: 'Novidades', sortField: 'created_at', sortOrder: 'DSC' },
+    {
+      option: 'Preço: Maior - menor',
+      sortField: 'price_in_cents',
+      sortOrder: 'DSC',
+    },
+    {
+      option: 'Preço: Menor - maior',
+      sortField: 'price_in_cents',
+      sortOrder: 'ASC',
+    },
+    { option: 'Mais vendidos', sortField: 'sales', sortOrder: 'DSC' },
+  ]
 
   return (
     <S.Container>
       <S.Button onClick={() => setIsOpen((value) => !value)}>
-        <span>{selectedOption?.option || 'Organizar por'}</span>
+        <span>{sortBy?.option || 'Organizar por'}</span>
         <ArrowDown />
       </S.Button>
       {isOpen ? (
@@ -44,4 +50,4 @@ const SelectFilter: React.FC<SelectProps> = ({ options, onChange }) => {
   )
 }
 
-export default SelectFilter
+export default SortBySelect

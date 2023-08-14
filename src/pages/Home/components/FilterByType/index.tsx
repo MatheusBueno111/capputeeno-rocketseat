@@ -1,22 +1,11 @@
 import React from 'react'
 import * as S from './styles'
-import SelectFilter from '../SelectFilter'
-import { Option } from '../../../../types'
-import { useProducts } from '../../../../hook/useProducts'
+
 import { useFilter } from '../../../../contexts/FilterContext'
+import SortBySelect from '../SelectFilter'
 
 const FilterByType: React.FC = () => {
-  const { isSelected } = useProducts()
-  const { setFilter } = useFilter()
-  const options: Option[] = [
-    { option: 'Novidades' },
-    { option: 'Preço: Maior - menor' },
-    { option: 'Preço: Menor - maior' },
-    { option: 'Mais vendidos' },
-  ]
-  const handleSelectChange = (selectedOption: Option) => {
-    console.log(`Selected option: ${selectedOption.option}`)
-  }
+  const { setFilter, isSelected } = useFilter()
 
   return (
     <S.Container>
@@ -37,7 +26,7 @@ const FilterByType: React.FC = () => {
           CANECAS
         </S.Filter>
       </S.WrapperFilters>
-      <SelectFilter options={options} onChange={handleSelectChange} />
+      <SortBySelect />
     </S.Container>
   )
 }
