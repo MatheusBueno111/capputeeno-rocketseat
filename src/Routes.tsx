@@ -2,7 +2,7 @@ import { Outlet, createBrowserRouter } from 'react-router-dom'
 import Header from './components/Header'
 import Home from './pages/Home'
 import Checkout from './pages/Checkout'
-import { FilterContextProvider } from './contexts/FilterContext'
+import { StoreContextProvider } from './contexts/StoreContext'
 
 const Layout = () => {
   return (
@@ -21,9 +21,9 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: (
-          <FilterContextProvider>
+          <StoreContextProvider>
             <Home />
-          </FilterContextProvider>
+          </StoreContextProvider>
         ),
       },
       {

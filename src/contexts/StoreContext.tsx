@@ -1,7 +1,7 @@
 import React, { ReactNode, createContext, useState, useContext } from 'react'
 import { Filter, Option } from '../types'
 
-interface FilterContextType {
+interface StoreContextType {
   filter: Filter | ''
   setFilter: React.Dispatch<React.SetStateAction<Filter | ''>>
   isSelected: (value: string) => boolean
@@ -9,13 +9,13 @@ interface FilterContextType {
   setSortBy: React.Dispatch<React.SetStateAction<Option | null>>
 }
 
-export const FilterContext = createContext({} as FilterContextType)
+export const StoreContext = createContext({} as StoreContextType)
 
-interface FilterContextProviderProps {
+interface StoreContextProviderProps {
   children: ReactNode
 }
 
-export const FilterContextProvider: React.FC<FilterContextProviderProps> = ({
+export const StoreContextProvider: React.FC<StoreContextProviderProps> = ({
   children,
 }) => {
   const [filter, setFilter] = useState<Filter | ''>('')
@@ -25,16 +25,16 @@ export const FilterContextProvider: React.FC<FilterContextProviderProps> = ({
   }
 
   return (
-    <FilterContext.Provider
+    <StoreContext.Provider
       value={{ filter, setFilter, isSelected, setSortBy, sortBy }}
     >
       {children}
-    </FilterContext.Provider>
+    </StoreContext.Provider>
   )
 }
 
-export const useFilter = (): FilterContextType => {
-  const context = useContext(FilterContext)
+export const useStore = (): StoreContextType => {
+  const context = useContext(StoreContext)
 
   return context
 }

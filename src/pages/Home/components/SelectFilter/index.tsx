@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import * as S from './styles'
 import { ArrowDown } from '../../../../components/Icons/ArrowDown'
 import { Option } from '../../../../types'
-import { useFilter } from '../../../../contexts/FilterContext'
+import { useStore } from '../../../../contexts/StoreContext'
 
 const SortBySelect: React.FC = () => {
-  const { sortBy, setSortBy } = useFilter()
+  const { sortBy, setSortBy } = useStore()
   const [isOpen, setIsOpen] = useState(false)
 
   const handleSelect = (option: Option) => {

@@ -1,11 +1,11 @@
 import React from 'react'
 import * as S from './styles'
 
-import { useFilter } from '../../../../contexts/FilterContext'
 import SortBySelect from '../SelectFilter'
+import { useStore } from '../../../../contexts/StoreContext'
 
 const FilterByType: React.FC = () => {
-  const { setFilter, isSelected } = useFilter()
+  const { setFilter, isSelected } = useStore()
 
   return (
     <S.Container>

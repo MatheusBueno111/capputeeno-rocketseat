@@ -1,9 +1,9 @@
 import { useQuery } from 'react-query'
-import { useFilter } from '../contexts/FilterContext'
 import { fetchProducts } from '../fetchers/products'
+import { useStore } from '../contexts/StoreContext'
 
 export function useProducts() {
-  const { filter, sortBy } = useFilter()
+  const { filter, sortBy } = useStore()
 
   const { data, isLoading } = useQuery({
     queryFn: () => fetchProducts(filter, sortBy),
