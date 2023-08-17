@@ -14,6 +14,9 @@ export interface Product {
 
 export interface FetchProductsResponse {
   allProducts: Product[]
+  _allProductsMeta: {
+    count: number
+  }
 }
 
 export type Filter = 't-shirts' | 'mugs'

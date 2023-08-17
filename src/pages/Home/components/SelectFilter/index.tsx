@@ -5,11 +5,12 @@ import { Option } from '../../../../types'
 import { useStore } from '../../../../contexts/StoreContext'
 
 const SortBySelect: React.FC = () => {
-  const { sortBy, setSortBy } = useStore()
+  const { sortBy, setSortBy, setCurrentPage } = useStore()
   const [isOpen, setIsOpen] = useState(false)
 
   const handleSelect = (option: Option) => {
     setSortBy(option)
+    setCurrentPage(1)
     setIsOpen(false)
   }
 

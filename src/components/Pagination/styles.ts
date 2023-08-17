@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 
-interface IconProps {
-  color?: string
+type PageButtonProps = {
+  $isSelected?: boolean
 }
 
 export const Container = styled.div`
@@ -11,14 +11,21 @@ export const Container = styled.div`
   justify-content: flex-end;
 `
 
-export const PaginationButton = styled.div<IconProps>`
+export const PaginationButton = styled.button<PageButtonProps>`
+  cursor: pointer;
   display: flex;
   width: 1.8rem;
   height: 1.8rem;
   font-size: 1rem;
-  background-color: ${({ theme }) => theme.colors.gray};
-  color: ${({ theme }) => theme.colors.text};
-  border: 1px solid transparent;
+  font-weight: 600;
+  background-color: ${({ theme, $isSelected }) =>
+    $isSelected ? theme.colors.whiteLight : theme.colors.gray};
+  color: ${({ theme, $isSelected }) =>
+    $isSelected ? theme.colors.orange : theme.colors.text};
+
+  border: 1px solid
+    ${({ theme, $isSelected }) =>
+      $isSelected ? theme.colors.orange : 'transparent'};
   border-radius: 0.4rem;
   justify-content: center;
   align-items: center;

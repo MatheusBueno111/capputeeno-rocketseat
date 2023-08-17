@@ -3,13 +3,14 @@ import { fetchProducts } from '../fetchers/products'
 import { useStore } from '../contexts/StoreContext'
 
 export function useProducts() {
-  const { filter, sortBy } = useStore()
+  const { filter, sortBy, itemsPerPage, currentPage } = useStore()
+  const page = currentPage - 1
 
-  const { data, isLoading } = useQuery({
-    queryFn: () => fetchProducts(filter, sortBy),
-    queryKey: ['products', filter, sortBy],
+  const { data: products, isLoading } = useQuery({
+    queryFn: () => fetchProducts(filter, sortBy, itemsPerPage, page),
+    queryKey: ['products', filter, sortBy, itemsPerPage, page],
     staleTime: 60 * 1000, // 1 minute
   })
-  const products = data?.allProducts
+
   return { products, isLoading }
 }

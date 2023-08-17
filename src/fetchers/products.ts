@@ -6,13 +6,18 @@ import { GET_PRODUCTS } from '../graphql/queries/getProducts'
 export const fetchProducts = async (
   filter: Filter | '',
   sortBy: Option | null,
+  itemsPerPage: number,
+  page: number,
 ) => {
   try {
     const formattedFilter = filter === '' ? undefined : { category: filter }
+
     const variables = {
       filter: formattedFilter,
       sortField: sortBy?.sortField || '',
       sortOrder: sortBy?.sortOrder || '',
+      perPage: itemsPerPage,
+      page,
     }
 
     const query = gql`

@@ -7,6 +7,10 @@ interface StoreContextType {
   isSelected: (value: string) => boolean
   sortBy: Option | null
   setSortBy: React.Dispatch<React.SetStateAction<Option | null>>
+  currentPage: number
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>
+  itemsPerPage: number
+  setItemsPerPage: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const StoreContext = createContext({} as StoreContextType)
@@ -20,13 +24,26 @@ export const StoreContextProvider: React.FC<StoreContextProviderProps> = ({
 }) => {
   const [filter, setFilter] = useState<Filter | ''>('')
   const [sortBy, setSortBy] = useState<Option | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(12)
+
   const isSelected = (value: string) => {
     return filter === value
   }
 
   return (
     <StoreContext.Provider
-      value={{ filter, setFilter, isSelected, setSortBy, sortBy }}
+      value={{
+        filter,
+        setFilter,
+        isSelected,
+        sortBy,
+        setSortBy,
+        currentPage,
+        setCurrentPage,
+        itemsPerPage,
+        setItemsPerPage,
+      }}
     >
       {children}
     </StoreContext.Provider>
