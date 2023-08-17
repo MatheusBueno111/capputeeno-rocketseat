@@ -36,6 +36,7 @@ export const Wrapper = styled.div`
   flex: 1;
   max-width: 25rem;
   .cart {
+    cursor: pointer;
     display: flex;
     align-items: center;
     position: relative;

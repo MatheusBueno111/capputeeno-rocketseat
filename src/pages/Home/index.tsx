@@ -24,11 +24,8 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     handleTotalPages()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products])
-
-  useEffect(() => {
-    console.log('renderizou')
-  }, [])
 
   return (
     <S.Container>

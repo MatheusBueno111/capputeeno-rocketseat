@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import Checkout from './pages/Checkout'
 import { StoreContextProvider } from './contexts/StoreContext'
+import ProductInfo from './components/ProductInfo'
 
 const Layout = () => {
   return (
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: '/checkout',
         element: <Checkout />,
+      },
+      {
+        path: '/:id',
+        element: <ProductInfo />,
       },
     ],
   },

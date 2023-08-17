@@ -2,6 +2,7 @@ import React from 'react'
 import * as S from './styles'
 import SearchBar from '../SearchBar'
 import { CartIcon } from '../Icons/CartIcon'
+import { Link } from 'react-router-dom'
 
 const Header: React.FC = () => {
   return (
@@ -13,8 +14,10 @@ const Header: React.FC = () => {
       <S.Wrapper>
         <SearchBar />
         <div className="cart">
-          <CartIcon />
-          <span>2</span>
+          <Link to="/checkout">
+            <CartIcon />
+            <span>2</span>
+          </Link>
         </div>
       </S.Wrapper>
     </S.Container>
