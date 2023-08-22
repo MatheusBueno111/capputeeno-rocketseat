@@ -17,7 +17,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, isLoading }) => {
   }
 
   const renderLoadingSkeleton = () => {
-    return Array.from({ length: 10 }).map((_, index) => (
+    return Array.from({ length: 12 }).map((_, index) => (
       <ProductSkeleton key={index} />
     ))
   }

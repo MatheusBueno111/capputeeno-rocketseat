@@ -17,6 +17,7 @@ export const Container = styled.div`
     width: fit-content;
     color: ${({ theme }) => theme.colors['text-span']};
     font-weight: 500;
+    margin-bottom: 2.2rem;
   }
 `
 

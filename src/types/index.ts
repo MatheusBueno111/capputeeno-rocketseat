@@ -10,6 +10,9 @@ export interface Product {
   image_url: string
   price_in_cents: number
   category: string
+  sales: string
+  created_at: string
+  description: string
 }
 
 export interface FetchProductsResponse {
@@ -17,6 +20,10 @@ export interface FetchProductsResponse {
   _allProductsMeta: {
     count: number
   }
+}
+
+export interface FetchProductResponse {
+  Product: Product
 }
 
 export type Filter = 't-shirts' | 'mugs'

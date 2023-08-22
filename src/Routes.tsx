@@ -3,7 +3,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import Checkout from './pages/Checkout'
 import { StoreContextProvider } from './contexts/StoreContext'
-import ProductInfo from './components/ProductInfo'
+import ProductInfo from './pages/ProductInfo'
 
 const Layout = () => {
   return (

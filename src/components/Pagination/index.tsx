@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import * as S from './styles'
 import { ArrowLeft } from '../Icons/ArrowLeft'
 import { ArrowRight } from '../Icons/ArrowRight'
@@ -39,10 +39,6 @@ const PaginationBar: React.FC<PaginationBarProps> = ({ totalPages }) => {
       setCurrentPage(currentPage - 1)
     }
   }
-
-  useEffect(() => {
-    console.log('currentPagee', currentPage)
-  }, [currentPage])
 
   return (
     <S.Container>
