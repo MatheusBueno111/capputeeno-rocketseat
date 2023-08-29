@@ -13,6 +13,7 @@ export interface Product {
   sales: string
   created_at: string
   description: string
+  counter?: number
 }
 
 export interface FetchProductsResponse {

@@ -5,9 +5,18 @@ import { ArrowCircleUpLeft } from '../../components/Icons/ArrowCircleUpLeft'
 import { CartIcon } from '../../components/Icons/CartIcon'
 import { useProductsById } from '../../hook/useProductsById'
 import { centavosParaReais } from '../../utils/formattedPrice'
+import { useAppDispatch } from '../../redux/hooks'
+import { addToCart } from '../../redux/cartSlice'
 
 const ProductInfo: React.FC = () => {
   const { product, isLoading } = useProductsById()
+
+  const dispatch = useAppDispatch()
+  const handleAddToCart = () => {
+    if (product) {
+      dispatch(addToCart(product))
+    }
+  }
 
   return (
     <S.Container>
@@ -21,7 +30,9 @@ const ProductInfo: React.FC = () => {
         <S.Wrapper>
           <img src={product?.image_url} alt="" />
           <S.Info>
-            <p className="product-category">{product?.category}</p>
+            <p className="product-category">
+              {product?.category === 'mugs' ? 'Caneca' : 'Camisa'}
+            </p>
             <h2 className="product-name">{product?.name}</h2>
             <p className="product-price">
               R$ {centavosParaReais(`${product?.price_in_cents}`)}
@@ -32,7 +43,7 @@ const ProductInfo: React.FC = () => {
             </span>
             <p className="product-title-description">Descrição</p>
             <p className="product-description">{product?.description}</p>
-            <S.AddProductButton>
+            <S.AddProductButton onClick={handleAddToCart}>
               <CartIcon />
               Adicionar ao carrinho
             </S.AddProductButton>

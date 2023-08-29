@@ -1,32 +1,20 @@
 import React from 'react'
-
 import * as S from './styles'
 
 interface SelectContentProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options?: any[]
-  isOpen: boolean
+  onSelect: (selectedOption: any) => void
 }
 
-const SelectContent: React.FC<SelectContentProps> = ({ isOpen, options }) => {
-  const handleOptionClick = (option: any[]) => {
-    console.log('option', option)
-  }
-
+const SelectContent: React.FC<SelectContentProps> = ({ options, onSelect }) => {
   return (
     <>
-      {isOpen ? (
-        <S.Container>
-          {options?.map((option) => (
-            <S.OptionItem
-              key={option.option}
-              onClick={() => handleOptionClick(option)}
-            >
-              {option.option}
-            </S.OptionItem>
-          ))}
-        </S.Container>
-      ) : null}
+      {options?.map((option) => (
+        <S.OptionItem key={option.option} onClick={() => onSelect(option)}>
+          {option.option}
+        </S.OptionItem>
+      ))}
     </>
   )
 }

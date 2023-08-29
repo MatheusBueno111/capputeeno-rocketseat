@@ -16,8 +16,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   }
 
   return (
-    <S.Container onClick={handleOpenProductInfo}>
-      <img src={product.image_url} alt="cappuccino" />
+    <S.Container onClick={handleOpenProductInfo} id="ola">
+      <img src={product.image_url} alt={product.name} />
       <S.Wrapper>
         <p className="product-description">{product.name}</p>
         <S.Divider />

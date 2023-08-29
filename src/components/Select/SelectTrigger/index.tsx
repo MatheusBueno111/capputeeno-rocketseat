@@ -1,22 +1,13 @@
-import React, { ButtonHTMLAttributes } from 'react'
+import React, { ButtonHTMLAttributes, ReactNode } from 'react'
 
 import * as S from './styles'
-import { ArrowDown } from '../../Icons/ArrowDown'
 
 interface SelectTriggerProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  placeholder: string
+  children: ReactNode
 }
 
-const SelectTrigger: React.FC<SelectTriggerProps> = ({
-  placeholder,
-  ...rest
-}) => {
-  return (
-    <S.Button {...rest}>
-      <span>{placeholder}</span>
-      <ArrowDown />
-    </S.Button>
-  )
+const SelectTrigger: React.FC<SelectTriggerProps> = ({ children, ...rest }) => {
+  return <S.Button {...rest}>{children}</S.Button>
 }
 
 export default SelectTrigger

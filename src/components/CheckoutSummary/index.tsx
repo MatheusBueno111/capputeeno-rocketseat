@@ -1,14 +1,26 @@
 import React from 'react'
 import * as S from './styles'
+import { useAppSelector } from '../../redux/hooks'
+import { useCart } from '../../redux/cartSlice'
+import { centavosParaReais } from '../../utils/formattedPrice'
 
 const CheckoutSummary: React.FC = () => {
+  const cart = useAppSelector(useCart)
+
+  const subTotal = cart.reduce((sumSubTotal, product) => {
+    return sumSubTotal + product.price_in_cents * product.counter!
+  }, 0)
+  const deliveryPrice = 4000
+  const total = subTotal + deliveryPrice
+
+  console.log('total', subTotal)
   return (
     <S.Container>
       <h4>RESUMO DO PEDIDO</h4>
       <S.Info>
         <div>
           <span>Subtotal de Produtos</span>
-          <span>R$ 161,00</span>
+          <span>R$ {centavosParaReais(`${subTotal}`)}</span>
         </div>
         <div>
           <span>Entrega</span>
@@ -17,7 +29,9 @@ const CheckoutSummary: React.FC = () => {
         <S.Divider />
         <div>
           <span className="total-price">Total</span>
-          <span className="total-price">R$ 201,00</span>
+          <span className="total-price">
+            R$ {centavosParaReais(`${total}`)}
+          </span>
         </div>
       </S.Info>
       <S.BuyButton>Finalizar a Compra</S.BuyButton>

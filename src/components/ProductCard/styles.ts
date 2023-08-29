@@ -6,6 +6,8 @@ export const Container = styled.div`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.backgroundLight};
   border-radius: 0.4rem;
+  cursor: pointer;
+
   box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
   img {
     border-top-left-radius: 0.4rem;
@@ -19,6 +21,10 @@ export const Container = styled.div`
       width: 25.6rem;
       height: 30rem;
     }
+  }
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.02);
   }
 `
 
